@@ -1,0 +1,6 @@
+pandas
+biopython
+networkx
+matplotlib
+igraph
+plotly

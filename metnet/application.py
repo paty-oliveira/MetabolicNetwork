@@ -15,7 +15,7 @@ class RunMetabolicalNetworkController:
 
 
     def load_from_file(self):
-        'Create a new MetabolicNetwork object from the filepath introduced.'
+        'Creates a new MetabolicNetwork object from the filepath introduced.'
         self.metabolic_network = MetabolicNetwork.create(self.options[InputOptions.FILEPATH])
         if self.metabolic_network is None:
             raise Exception("File not valid!")

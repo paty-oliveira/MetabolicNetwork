@@ -60,7 +60,7 @@ class MetabolicNetwork:
 
         return substract, product    
 
-    def create(filepath, network_type = 'metabolite-reaction'):
+    def create(self, filepath, network_type = 'metabolite-reaction'):
         'Creates objects of type MetabolicNetwork according to the file.'
 
         metabolic_network = MetabolicNetwork(network_type)      
@@ -155,12 +155,10 @@ class MetabolicNetwork:
                 
         layt = G.layout("kk", dim = 3) #definir o layout do grafo com o Kamada-Kawai layout algorithm e a 3 dimensoes
         
-        #criar as coordenadas para os nodes do grafo
         Xn=[layt[k][0] for k in range(num_nodes)]
         Yn=[layt[k][1] for k in range(num_nodes)]
         Zn=[layt[k][2] for k in range(num_nodes)]
 
-        #criar as coordenadas para os edges do grafo
         Xe=[]
         Ye=[]
         Ze=[]
@@ -170,30 +168,24 @@ class MetabolicNetwork:
             Ye += [layt[e[0]][1],layt[e[1]][1], None]  
             Ze += [layt[e[0]][2],layt[e[1]][2], None]
             
-        
-        #instrucoes para "desenhar" os edges na imagem
         edges_trace = go.Scatter3d(x = Xe, y = Ye, z = Ze, mode = "lines",
                               line = dict(color = "rgb(125,125,125)", width=1),
                               hoverinfo = "none")
         
-        #instrucoes para "desenhar" os nodes na imagem
         nodes_trace = go.Scatter3d(x = Xn, y = Yn, z = Zn, mode = "markers",
                               marker = dict(symbol = "circle", size = 6,
                               line = dict(color = "rgb(50,50,50)", width = 0.5)),
                               text = labels, hoverinfo="text")
         
-        #instrucoes para os eixos da imagem
         axis = dict(showbackground = False, showline = False,
                     zeroline = False, showgrid = False,
                     showticklabels = False, title = "")
         
-        #instrucoes para o layout da imagem        
         layout = go.Layout(title = "3D vizualization of the metabolic network",
                            width = 1000, height = 1000, showlegend = False,
                            scene = dict(xaxis = dict(axis), yaxis = dict(axis), zaxis = dict(axis),),
                            margin=dict(t = 50), hovermode = "closest")
         
-        #criar a imagem
         data = [edges_trace, nodes_trace]
 
         fig = go.Figure(data=data, layout=layout)

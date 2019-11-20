@@ -1,5 +1,5 @@
-from graph import Graph
-from shared import InputOptions
+from .graph import Graph
+from .shared import InputOptions
 import os
 import io
 from Bio.KEGG import REST

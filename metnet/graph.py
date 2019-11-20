@@ -68,6 +68,8 @@ class Graph:
 
         return result
 
+# Faz parte da classe NetworkTopology
+
     def out_degree(self, node):
         'Calcula o grau de saida, isto é, nº de successores (ligações que saem)'
         out_degree = len(self.get_successors(node))

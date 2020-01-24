@@ -5,5 +5,5 @@ The application MetNet allows the implementation of biological networks. The app
   - Concepts of graphs and topological analysis;
   - Creation of the new algorithms to extract biological meaning;
   - Graphic visualization of the biological networks;
-  - Extaction of the biological reactions and equations from the specific metabolic pathway, using KEGG API.
+  - Extraction of the biological reactions and equations from the specific metabolic pathway, using KEGG API.
 
